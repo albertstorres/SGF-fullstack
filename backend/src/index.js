@@ -1,4 +1,5 @@
 const express = require("express");
+
 const cors = require("cors");
 
 const rotas = require("./rotas/rotas");
