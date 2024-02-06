@@ -1,7 +1,7 @@
 import './styles.css';
 import Logo from '../../assets/logo.svg';
 import api from '../../services/api';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useEffect } from 'react';
 import useAuth from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 
@@ -35,6 +35,17 @@ function Login() {
             console.log(error);
         }
     }
+
+
+    useEffect(() => {
+        const token = handleGetToken();
+
+        if (token) {
+            navigate('/main');
+            return
+        }
+    }, []);
+
     return (
         <div className='container container-login'>
             <div className='login'>
