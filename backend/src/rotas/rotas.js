@@ -43,6 +43,7 @@ const controladorUsuarioLogin = require("../controladores/usuarios/controladorUs
 const controladorFeiraCadastrar = require("../controladores/feiras/controladorFeiraCadastrar");
 const controladorFeiraDeletar = require("../controladores/feiras/controladorFeiraDeletar");
 const controladorFeiraBuscaGeral = require("../controladores/feiras/buscas/controladorFeiraBuscaGeral");
+const controladorFeiraListar = require("../controladores/feiras/controladorFeiraListar");
 
 const controladorClienteCadastrar = require("../controladores/clientes/controladorClienteCadastrar");
 const controladorClienteAtualizar = require("../controladores/clientes/controladorClienteAtualizar");
@@ -107,6 +108,11 @@ rotas.post(
 );
 
 rotas.use(intermediarioUsuarioVerificarLogin);
+
+rotas.get(
+    '/feiras',
+    controladorFeiraListar
+);
 
 rotas.post(
     '/naoPago',
