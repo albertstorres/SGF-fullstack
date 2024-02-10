@@ -4,7 +4,7 @@ import api from '../../services/api';
 import { FormEvent, useState, useEffect } from 'react';
 import useAuth from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
-
+import axios from 'axios';
 
 function Login() {
     const navigate = useNavigate();
@@ -25,9 +25,9 @@ function Login() {
                 username,
                 senha
             });
-
-            const { accessToken } = res.data;
-            handleAddToken(accessToken);
+            console.log(res.data);
+            const { token } = res.data;
+            handleAddToken(token);
 
             navigate('/main');
 

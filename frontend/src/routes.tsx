@@ -1,7 +1,8 @@
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import Main from './pages/Main';
-import Login from './pages/Login'
+import Login from './pages/Login';
 import useAuth from './hooks/useAuth';
+import axios from 'axios';
 
 type Props = {
     redirectTo: string;
@@ -18,7 +19,7 @@ function MainRoutes() {
         <Routes>
             <Route path='/' element={<Login />} />
             <Route element={<ProtectedRoutes redirectTo='/' />}>
-                <Route path='/main' element={<Main />} />
+                <Route path='/main?' element={<Main />} />
             </Route >
         </Routes>
     );
